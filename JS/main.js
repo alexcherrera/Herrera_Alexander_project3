@@ -131,9 +131,10 @@ window.addEventListener("DOMContentLoaded", function () {
         var createRoster = makeTag('ul');
         createDiv.appendChild(createRoster);
         document.body.appendChild(createDiv);
-        idTag('items').style.display = "block";//Just to make sure it does display
+        idTag('items').style.display = "block";//Just to make sure it does display.
         for (var i = 0, w = localStorage.length; i < w; i++) {
             var createFirstListTag = makeTag('li');
+            var createListLinks = makeTag('li');
             createRoster.appendChild(createFirstListTag);
             var getKey = localStorage.key(i);
             var keyValue = localStorage.getItem(getKey);
@@ -145,11 +146,34 @@ window.addEventListener("DOMContentLoaded", function () {
                 anotherUnorderListTag.appendChild(createAnotherList);
                 var listInfoText = localStorageObject[s][0]+ " " + localStorageObject[s][1];
                 createAnotherList.innerHTML = listInfoText;
+                anotherUnorderListTag.appendChild(createListLinks);
             }
+            createEditLink(localStorage.getkey(i), createListLinks);//Calling the function that will only have the edit link for the user to make corrections in the local storage.
+            //createDeleteLink(localStorage.key(i), createListLinks);//Calling the function that will only have the delete link.
         }
     }
+//Create Edit Link to change information that is in the local storage.
+    function createEditLink (key, eLink) {
+        var linkEdit = makeTag('a');
+        linkEdit.href = '#';
+        linkEdit.key = key;
+        var textEdit = "Edit Schedule";
+        //linkEdit.addEventListener("click", editSchedule);
+        linkEdit.innerHTML = textEdit;
+        createListLinks.appendChild(linkEdit);
 
+    }
+//Create Delete Link to erase items in the local storage.
+   /* function createDeleteLink(key, dLink) {
+        var linkDelete = makeTag('a');
+        linkDelete.href = '#';
+        linkDelete.key = key;
+        var textDelete = "Delete Schedule";
+        //linkDelete.addEventListener("click", deleteSchedule);
+        linkDelete.innerHTML = textDelete;
+        createListLinks.appendChild(linkDelete);
 
+    }*/
 
  
 });
