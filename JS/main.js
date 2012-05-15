@@ -148,7 +148,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 createAnotherList.innerHTML = listInfoText;
                 anotherUnorderListTag.appendChild(createListLinks);
             }
-            createEditLink(localStorage.getkey(i), createListLinks);//Calling the function that will only have the edit link for the user to make corrections in the local storage.
+            createEditLink(localStorage.key(i), createListLinks);//Calling the function that will only have the edit link for the user to make corrections in the local storage.
             //createDeleteLink(localStorage.key(i), createListLinks);//Calling the function that will only have the delete link.
         }
     }
@@ -160,7 +160,7 @@ window.addEventListener("DOMContentLoaded", function () {
         var textEdit = "Edit Schedule";
         //linkEdit.addEventListener("click", editSchedule);
         linkEdit.innerHTML = textEdit;
-        createListLinks.appendChild(linkEdit);
+        eLink.appendChild(linkEdit);
 
     }
 //Create Delete Link to erase items in the local storage.
