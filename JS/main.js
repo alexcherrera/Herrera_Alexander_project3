@@ -8,24 +8,6 @@ For the browser I used Google Chrome, Safari web inspector hardly worked
 window.addEventListener("DOMContentLoaded", function () {
     console.log("working");
     //alert(localStorage.value(0));
-//Variables:
-    var departmentMajors = ["--Choose Major--", 
-                        "Architecture", 
-                        "Biology", 
-                        "Mathematics", 
-                        "Accounting",
-                        "Economics", 
-                        "Computer Engineering", 
-                        "Electrical Engineering"];
-    console.log(departmentMajors);
-    var linkOfClear = idTag("clear");
-    linkOfClear.addEventListener("click", eraseInformation);
-    var linkOfDisplay = idTag("display");
-    linkOfDisplay.addEventListener("click", getInfoToDisplay);
-    var save = idTag('submit');
-    save.addEventListener("click", saveInformation);
-   
-    
 
 //Getting the elements by id
     function idTag (e) {
@@ -42,6 +24,19 @@ window.addEventListener("DOMContentLoaded", function () {
         var createNewTag = document.createElement(c);
         return createNewTag;
     }
+//Variables:
+    var departmentMajors = ["--Choose Major--", 
+                        "Architecture", 
+                        "Biology", 
+                        "Mathematics", 
+                        "Accounting",
+                        "Economics", 
+                        "Computer Engineering", 
+                        "Electrical Engineering"];
+    console.log(departmentMajors);
+    var optionValue = "";
+    
+        
 //Radio Selection function  
     function getSelectionRadio () {
         var buttonRadio = idTag("collegeForm").turnin;
@@ -51,8 +46,6 @@ window.addEventListener("DOMContentLoaded", function () {
            }
         }
     }
-     
-
 //To save all of the information in local storage
     function saveInformation () {
         var id                = Math.floor(Math.random()*1000292002);
@@ -66,7 +59,6 @@ window.addEventListener("DOMContentLoaded", function () {
             info.dueDate      = ["Due Date:", idTag('dueDate').value];
             info.option       = ["Turn In Option:", optionValue];
             info.note         = ["Note Section:", idTag('noteSection').value];
-        console.log(info.value);
         localStorage.setItem(id, JSON.stringify(info));
         alert("Assignment Saved!!");
     }
@@ -123,6 +115,53 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    //Create Edit Link to change information that is in the local storage.
+    function createEditLink (key, eLink) {
+        var linkEdit = makeTag('a');
+        linkEdit.href = '#';
+        linkEdit.key = key;
+        var textEdit = "Edit Schedule";
+        linkEdit.addEventListener("click", editSchedule);
+        linkEdit.innerHTML = textEdit;
+        eLink.appendChild(linkEdit);
+        //Creating a break to make space
+        var breakTag = makeTag('br');
+        eLink.appendChild(breakTag);
+    }
+
+    function editSchedule () {
+        var valueToEdit = localStorage.getItem(this.key);
+        var info = JSON.parse(valueToEdit);
+        visibilityOfElement("off");//Display the form
+        idTag('selectMajor').value = info.major[1];
+        idTag('courseName').value = info.cName[1];
+        idTag('courseSection').value = info.cSection[1];
+        idTag('topicAndSection').value = info.topicAndSec[1];
+        idTag('todaysDate').value = info.todaysDate[1];
+        idTag('dueDate').value = info.dueDate[1];
+        var radioOption = idTag("collegeForm").turnin;
+        for (var i = 0; i < radioOption.length; i++) {
+            if (radioOption[i].value == "Email" && info.option[0] == "Email") {
+                radioOption[i].setAttribute("checked", "checked");
+            } else if (radioOption[i].value == "Person" && info.option[1] == "Person"){
+                radioOption[i].setAttribute("checked", "checked");
+            }
+        }
+        idTag('noteSection').value = info.note[1];
+    }
+   
+//Create Delete Link to erase items in the local storage.
+ function createDeleteLink(key, dLink) {
+        var linkDelete = makeTag('a');
+        linkDelete.href = '#';
+        linkDelete.key = key;
+        var textDelete = "Delete Schedule";
+        //linkDelete.addEventListener("click", deleteSchedule);
+        linkDelete.innerHTML = textDelete;
+        dLink.appendChild(linkDelete);
+
+    }
+
     function getInfoToDisplay () {
         visibilityOfElement("on");
         displayCheck();
@@ -149,31 +188,15 @@ window.addEventListener("DOMContentLoaded", function () {
                 anotherUnorderListTag.appendChild(createListLinks);
             }
             createEditLink(localStorage.key(i), createListLinks);//Calling the function that will only have the edit link for the user to make corrections in the local storage.
-            //createDeleteLink(localStorage.key(i), createListLinks);//Calling the function that will only have the delete link.
+            createDeleteLink(localStorage.key(i), createListLinks);//Calling the function that will only have the delete link.
         }
     }
-//Create Edit Link to change information that is in the local storage.
-    function createEditLink (key, eLink) {
-        var linkEdit = makeTag('a');
-        linkEdit.href = '#';
-        linkEdit.key = key;
-        var textEdit = "Edit Schedule";
-        //linkEdit.addEventListener("click", editSchedule);
-        linkEdit.innerHTML = textEdit;
-        eLink.appendChild(linkEdit);
 
-    }
-//Create Delete Link to erase items in the local storage.
-   /* function createDeleteLink(key, dLink) {
-        var linkDelete = makeTag('a');
-        linkDelete.href = '#';
-        linkDelete.key = key;
-        var textDelete = "Delete Schedule";
-        //linkDelete.addEventListener("click", deleteSchedule);
-        linkDelete.innerHTML = textDelete;
-        createListLinks.appendChild(linkDelete);
-
-    }*/
-
- 
+var linkOfClear = idTag("clear");
+    linkOfClear.addEventListener("click", eraseInformation);
+    var linkOfDisplay = idTag("display");
+    linkOfDisplay.addEventListener("click", getInfoToDisplay);
+    var save = idTag('submit');
+    save.addEventListener("click", saveInformation);
+ console.log(idTag("collegeForm").turnin);
 });
