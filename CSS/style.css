@@ -1,6 +1,6 @@
 /*
 Alexander Herrera
-Project2
+Project 3
 */
 html {
 	background-color:#003F87;
@@ -16,16 +16,9 @@ h1 {
 	background-color:#33A1DE;
 	color:#E9F5FB;
 }
-article {
-	margin:30px;
-	border:8px groove #8EA4B1;
-	padding: 0px 10px;
-	background-color: #70BDE8;
-	font-style: normal; 
-	font-variant: normal;
-	font-weight: bold; 
-	font-family: "Times New Roman";
-	color: #F0F3f5;
+form fieldset #errorMessages {
+	color: red;
+	font-weight: bold;
 }
 h2 {
 	margin-top: 20px;
@@ -71,12 +64,53 @@ div ul li {
 	display: block;
 }
 a {
-	margin-top: 10px;
-	margin-right: 10px;
-	margin-bottom: 10px;
 	margin-left:5px;
 	border: 2px solid #000000;
 	padding: 2px;
+	color: #000000;
+	background-color: #BFCBD3;
+}
+article {
+	margin-left:10px;
+	font-style: normal; 
+	font-variant: normal;
+	font-weight: bold; 
+	font-family: "Times New Roman";
+	
+}
+nav [id='clear'] {
+	border: 2px solid #000000;
+	padding: 2px;
+	color: #000000;
+	background-color: #BFCBD3;
+}
+nav [id='display'] {
+	margin-left:5px;
+	border: 2px solid #000000;
+	padding: 2px;
+	color: #000000;
+	background-color: #BFCBD3;
+}
+nav [id='add'] {
+	margin-left:5px;
+	border: 2px solid #000000;
+	padding: 2px;
+	color: #000000;
+	background-color: #BFCBD3;
+}
+div [id='editS'] {
+	border: 2px solid #000000;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left:0px;
+	color: #000000;
+	background-color: #BFCBD3;
+}
+div [id='deleteS'] {
+	border: 2px solid #000000;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left:0px;
 	color: #000000;
 	background-color: #BFCBD3;
 }
