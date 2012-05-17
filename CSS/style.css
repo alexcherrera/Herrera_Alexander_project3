@@ -26,7 +26,7 @@ h2 {
 	margin-bottom: 30px;
 	margin-left:10px;
 	padding: 5px;
-	border:6px ridge #8EA4B1;
+	border: 6px ridge #8EA4B1;
 	text-align: left;
 	background-color: #33A1DE;	
 	color: #F0F3f5;
@@ -64,14 +64,14 @@ div ul li {
 	display: block;
 }
 a {
-	margin-left:5px;
+	margin-left: 5px;
 	border: 2px solid #000000;
 	padding: 2px;
 	color: #000000;
 	background-color: #BFCBD3;
 }
 article {
-	margin-left:10px;
+	margin-left: 10px;
 	font-style: normal; 
 	font-variant: normal;
 	font-weight: bold; 
@@ -85,7 +85,7 @@ nav [id='clear'] {
 	background-color: #BFCBD3;
 }
 nav [id='display'] {
-	margin-left:5px;
+	margin-left: 5px;
 	border: 2px solid #000000;
 	padding: 2px;
 	color: #000000;
@@ -102,7 +102,7 @@ div [id='editS'] {
 	border: 2px solid #000000;
 	margin-right: 10px;
 	margin-bottom: 10px;
-	margin-left:0px;
+	margin-left: 0px;
 	color: #000000;
 	background-color: #BFCBD3;
 }
@@ -110,7 +110,7 @@ div [id='deleteS'] {
 	border: 2px solid #000000;
 	margin-right: 10px;
 	margin-bottom: 10px;
-	margin-left:0px;
+	margin-left: 0px;
 	color: #000000;
 	background-color: #BFCBD3;
 }

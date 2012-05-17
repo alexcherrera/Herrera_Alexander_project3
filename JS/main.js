@@ -196,7 +196,6 @@ window.addEventListener("DOMContentLoaded", function () {
                 getErrorMessId.appendChild(errorTextList);
             }
             //The preventDefault allows the error messages to display with the style features. 
-           
             evt.preventDefault();
         } else {
             //When their is no error's this function will run.
